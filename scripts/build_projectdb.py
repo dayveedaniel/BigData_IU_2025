@@ -7,8 +7,6 @@ file = os.path.join("secrets", ".psql.pass")
 with open(file, "r") as file:
     password = file.read().rstrip()
 
-# df = pd.read_csv('data/US_Accidents_March23.csv')
-
 # build connection string
 conn_string = "host=hadoop-01.uni.innopolis.ru port=22 user=team5 dbname=team5_projectdb password={}".format(password)
 
