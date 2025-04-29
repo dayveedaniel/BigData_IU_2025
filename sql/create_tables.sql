@@ -71,7 +71,7 @@ CREATE TABLE road_features (
     station          BOOLEAN,
     stop             BOOLEAN,
     traffic_calming  BOOLEAN,
-    traffic_signal   BOOLEAN,
+    traffic_signal   BOOLEAN
 );
 
 CREATE UNIQUE INDEX IF NOT EXISTS ux_road_features_combo
