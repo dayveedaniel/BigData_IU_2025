@@ -1,0 +1,37 @@
+{
+  "type" : "record",
+  "name" : "twilight",
+  "doc" : "Sqoop import of twilight",
+  "fields" : [ {
+    "name" : "id",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "id",
+    "sqlType" : "5"
+  }, {
+    "name" : "sunrise_sunset",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "sunrise_sunset",
+    "sqlType" : "12"
+  }, {
+    "name" : "civil_twilight",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "civil_twilight",
+    "sqlType" : "12"
+  }, {
+    "name" : "nautical_twilight",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "nautical_twilight",
+    "sqlType" : "12"
+  }, {
+    "name" : "astronomical_twilight",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "astronomical_twilight",
+    "sqlType" : "12"
+  } ],
+  "tableName" : "twilight"
+}

@@ -1,0 +1,87 @@
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.util.Shell).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++------------------+---------------------------------------+-----------------------------+
+| q6_results.year  |     q6_results.intersection_type      | q6_results.total_accidents  |
++------------------+---------------------------------------+-----------------------------+
+| 2016             | no_signal_no_roundabout_crosswalk     | 2763                        |
+| 2016             | no_signal_no_roundabout_no_crosswalk  | 110643                      |
+| 2016             | signal_no_roundabout_crosswalk        | 7498                        |
+| 2016             | signal_no_roundabout_no_crosswalk     | 7464                        |
+| 2017             | no_signal_no_roundabout_crosswalk     | 3636                        |
+| 2017             | no_signal_no_roundabout_no_crosswalk  | 147983                      |
+| 2017             | no_signal_roundabout_no_crosswalk     | 6                           |
+| 2017             | signal_no_roundabout_crosswalk        | 8767                        |
+| 2017             | signal_no_roundabout_no_crosswalk     | 8342                        |
+| 2018             | no_signal_no_roundabout_crosswalk     | 3038                        |
+| 2018             | no_signal_no_roundabout_no_crosswalk  | 149705                      |
+| 2018             | signal_no_roundabout_crosswalk        | 6178                        |
+| 2018             | signal_no_roundabout_no_crosswalk     | 6008                        |
+| 2019             | no_signal_no_roundabout_crosswalk     | 4991                        |
+| 2019             | no_signal_no_roundabout_no_crosswalk  | 231707                      |
+| 2019             | no_signal_roundabout_no_crosswalk     | 2                           |
+| 2019             | signal_no_roundabout_crosswalk        | 9478                        |
+| 2019             | signal_no_roundabout_no_crosswalk     | 11107                       |
+| 2020             | no_signal_no_roundabout_crosswalk     | 26294                       |
+| 2020             | no_signal_no_roundabout_no_crosswalk  | 555890                      |
+| 2020             | no_signal_roundabout_crosswalk        | 3                           |
+| 2020             | no_signal_roundabout_no_crosswalk     | 15                          |
+| 2020             | signal_no_roundabout_crosswalk        | 53184                       |
+| 2020             | signal_no_roundabout_no_crosswalk     | 54515                       |
+| 2021             | no_signal_no_roundabout_crosswalk     | 65838                       |
+| 2021             | no_signal_no_roundabout_no_crosswalk  | 938541                      |
+| 2021             | no_signal_roundabout_crosswalk        | 4                           |
+| 2021             | no_signal_roundabout_no_crosswalk     | 35                          |
+| 2021             | signal_no_roundabout_crosswalk        | 40180                       |
+| 2021             | signal_no_roundabout_no_crosswalk     | 42568                       |
+| 2022             | no_signal_no_roundabout_crosswalk     | 79336                       |
+| 2022             | no_signal_no_roundabout_no_crosswalk  | 1293107                     |
+| 2022             | no_signal_roundabout_crosswalk        | 8                           |
+| 2022             | no_signal_roundabout_no_crosswalk     | 41                          |
+| 2022             | signal_no_roundabout_crosswalk        | 54264                       |
+| 2022             | signal_no_roundabout_no_crosswalk     | 54995                       |
+| 2023             | no_signal_no_roundabout_crosswalk     | 7764                        |
+| 2023             | no_signal_no_roundabout_no_crosswalk  | 211240                      |
+| 2023             | no_signal_roundabout_crosswalk        | 2                           |
+| 2023             | no_signal_roundabout_no_crosswalk     | 8                           |
+| 2023             | signal_no_roundabout_crosswalk        | 9953                        |
+| 2023             | signal_no_roundabout_no_crosswalk     | 10937                       |
++------------------+---------------------------------------+-----------------------------+

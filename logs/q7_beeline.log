@@ -1,0 +1,35 @@
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.util.Shell).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++----------------------+-----------------------------+-----------------------------+
+| q7_results.severity  | q7_results.avg_distance_mi  | q7_results.total_accidents  |
++----------------------+-----------------------------+-----------------------------+
+| 1                    | 0.20                        | 27972                       |
+| 2                    | 0.83                        | 3847385                     |
+| 3                    | 0.60                        | 159672                      |
+| 4                    | 1.26                        | 183009                      |
++----------------------+-----------------------------+-----------------------------+

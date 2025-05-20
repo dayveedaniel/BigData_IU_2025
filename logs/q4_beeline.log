@@ -1,0 +1,42 @@
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.util.Shell).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++------------------+-------------------+----------------------------+
+| q4_results.city  | q4_results.state  | q4_results.accident_count  |
++------------------+-------------------+----------------------------+
+| Los Angeles      | CA                | 305797                     |
+| Miami-Dade       | FL                | 206924                     |
+| Orange           | FL                | 89464                      |
+| San Bernardino   | CA                | 73823                      |
+| Dallas           | TX                | 70849                      |
+| Orange           | CA                | 69831                      |
+| San Diego        | CA                | 66665                      |
+| Sacramento       | CA                | 62611                      |
+| Harris           | TX                | 62285                      |
+| Riverside        | CA                | 56795                      |
++------------------+-------------------+----------------------------+

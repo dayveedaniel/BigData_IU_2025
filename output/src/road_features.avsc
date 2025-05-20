@@ -1,0 +1,85 @@
+{
+  "type" : "record",
+  "name" : "road_features",
+  "doc" : "Sqoop import of road_features",
+  "fields" : [ {
+    "name" : "id",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "id",
+    "sqlType" : "5"
+  }, {
+    "name" : "amenity",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "amenity",
+    "sqlType" : "-7"
+  }, {
+    "name" : "bump",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "bump",
+    "sqlType" : "-7"
+  }, {
+    "name" : "crossing",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "crossing",
+    "sqlType" : "-7"
+  }, {
+    "name" : "give_way",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "give_way",
+    "sqlType" : "-7"
+  }, {
+    "name" : "junction",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "junction",
+    "sqlType" : "-7"
+  }, {
+    "name" : "no_exit",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "no_exit",
+    "sqlType" : "-7"
+  }, {
+    "name" : "railway",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "railway",
+    "sqlType" : "-7"
+  }, {
+    "name" : "roundabout",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "roundabout",
+    "sqlType" : "-7"
+  }, {
+    "name" : "station",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "station",
+    "sqlType" : "-7"
+  }, {
+    "name" : "stop",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "stop",
+    "sqlType" : "-7"
+  }, {
+    "name" : "traffic_calming",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "traffic_calming",
+    "sqlType" : "-7"
+  }, {
+    "name" : "traffic_signal",
+    "type" : [ "null", "boolean" ],
+    "default" : null,
+    "columnName" : "traffic_signal",
+    "sqlType" : "-7"
+  } ],
+  "tableName" : "road_features"
+}

@@ -1,0 +1,192 @@
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP DATABASE team5_projectdb CASCADE;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE DATABASE team5_projectdb LOCATION 'project/hive/warehouse';
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> USE team5_projectdb;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Keep dynamic‑partition & bucketing switches
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.exec.dynamic.partition       = true;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.exec.dynamic.partition.mode  = nonstrict;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET hive.enforce.bucketing            = true;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SET avro.output.codec                 = bzip2;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE locations 
+. . . . . . . . . . . . . . . . . . . . . . .> STORED AS AVRO LOCATION 'project/warehouse/avro/locations'
+. . . . . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES ('avro.schema.url'='project/warehouse/avsc/locations.avsc');
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE weather 
+. . . . . . . . . . . . . . . . . . . . . . .> STORED AS AVRO LOCATION 'project/warehouse/avro/weather'
+. . . . . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES ('avro.schema.url'='project/warehouse/avsc/weather.avsc');
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE twilight 
+. . . . . . . . . . . . . . . . . . . . . . .> STORED AS AVRO LOCATION 'project/warehouse/avro/twilight'
+. . . . . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES ('avro.schema.url'='project/warehouse/avsc/twilight.avsc');
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE road_features 
+. . . . . . . . . . . . . . . . . . . . . . .> STORED AS AVRO LOCATION 'project/warehouse/avro/road_features'
+. . . . . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES ('avro.schema.url'='project/warehouse/avsc/road_features.avsc');
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE accidents 
+. . . . . . . . . . . . . . . . . . . . . . .> STORED AS AVRO LOCATION 'project/warehouse/avro/accidents'
+. . . . . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES ('avro.schema.url'='project/warehouse/avsc/accidents.avsc');
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DESCRIBE accidents;
++---------------+------------+----------+
+|   col_name    | data_type  | comment  |
++---------------+------------+----------+
+| id            | string     |          |
+| source        | string     |          |
+| severity      | int        |          |
+| start_time    | bigint     |          |
+| end_time      | bigint     |          |
+| distance_mi   | string     |          |
+| description   | string     |          |
+| location_id   | bigint     |          |
+| weather_id    | bigint     |          |
+| twilight_id   | int        |          |
+| road_feat_id  | int        |          |
++---------------+------------+----------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SELECT * FROM accidents LIMIT 10;
++---------------+-------------------+---------------------+-----------------------+---------------------+------------------------+----------------------------------------------------+------------------------+-----------------------+------------------------+-------------------------+
+| accidents.id  | accidents.source  | accidents.severity  | accidents.start_time  | accidents.end_time  | accidents.distance_mi  |               accidents.description                | accidents.location_id  | accidents.weather_id  | accidents.twilight_id  | accidents.road_feat_id  |
++---------------+-------------------+---------------------+-----------------------+---------------------+------------------------+----------------------------------------------------+------------------------+-----------------------+------------------------+-------------------------+
+| A-6275607     | Source1           | 2                   | 1634590416000         | 1634597170000       | 0.14                   | Incident on SEVEN OAKS DR near FERNSPRAY RD Expect delays. | 3                      | 2474475               | 10                     | 258                     |
+| A-7399200     | Source1           | 2                   | 1569478980000         | 1569482623000       | 0.005                  | At 4th St - Accident.                              | 5                      | 4170532               | 11                     | 258                     |
+| A-7398055     | Source1           | 2                   | 1569398400000         | 1569401564000       | 0.005                  | At 4th St - Accident.                              | 5                      | 4277080               | 5                      | 258                     |
+| A-7396666     | Source1           | 2                   | 1569304800000         | 1569312096000       | 0.005                  | At 4th St - Accident.                              | 5                      | 458751                | 4                      | 258                     |
+| A-7417227     | Source1           | 2                   | 1568311170000         | 1568314331000       | 0.005                  | At 4th St - Accident.                              | 5                      | 1341607               | 5                      | 258                     |
+| A-5237435     | Source1           | 2                   | 1674830668000         | 1674845455000       | 8.517000000000001      | Stationary traffic on FL-91 S - Florida's Tpke S from US-27/Exit 289 (Florida's Tpke) to Scrub Jay Ln (Florida's Tpke) due to accident. | 7                      | 2014768               | 5                      | 258                     |
+| A-4922606     | Source1           | 2                   | 1656693629000         | 1656698311000       | 0.024                  | Incident on CONNECTICUT AVE near CONNECTICUT AVE Drive with caution. | 11                     | 1685281               | 5                      | 57                      |
+| A-5956316     | Source1           | 2                   | 1637252490000         | 1637253810000       | 0.273                  | Stationary traffic on VA-7 Bus from US-15 Bus/King St (VA-7 Bus/E Market St) to VA-7/Harry Byrd Hwy (VA-7 Bus/W Market St) due to accident. | 13                     | 4142642               | 5                      | 258                     |
+| A-3492989     | Source1           | 4                   | 1471799291000         | 1472127460000       | 0.912                  | Closed between Rogers Ave and Westchester Ave - Road closed due to accident. Roadwork. | 15                     | 2774350               | 5                      | 258                     |
+| A-3492998     | Source1           | 4                   | 1471799291000         | 1472128943000       | 0.912                  | Closed between Rogers Ave and Westchester Ave - Road closed due to accident. Roadwork. | 15                     | 2774350               | 5                      | 258                     |
++---------------+-------------------+---------------------+-----------------------+---------------------+------------------------+----------------------------------------------------+------------------------+-----------------------+------------------------+-------------------------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE weather_buck (
+. . . . . . . . . . . . . . . . . . . . . . .>     id                BIGINT,
+. . . . . . . . . . . . . . . . . . . . . . .>     airport_code      CHAR(4),
+. . . . . . . . . . . . . . . . . . . . . . .>     weather_timestamp TIMESTAMP,
+. . . . . . . . . . . . . . . . . . . . . . .>     temperature_f     DECIMAL,
+. . . . . . . . . . . . . . . . . . . . . . .>     wind_chill_f      DECIMAL,
+. . . . . . . . . . . . . . . . . . . . . . .>     humidity_pct      DECIMAL,
+. . . . . . . . . . . . . . . . . . . . . . .>     pressure_in       DECIMAL,
+. . . . . . . . . . . . . . . . . . . . . . .>     visibility_mi     DECIMAL,
+. . . . . . . . . . . . . . . . . . . . . . .>     wind_direction    STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     wind_speed_mph    DECIMAL,
+. . . . . . . . . . . . . . . . . . . . . . .>     precipitation_in  DECIMAL,
+. . . . . . . . . . . . . . . . . . . . . . .>     weather_condition STRING
+. . . . . . . . . . . . . . . . . . . . . . .> )
+. . . . . . . . . . . . . . . . . . . . . . .> CLUSTERED BY (weather_condition)      
+. . . . . . . . . . . . . . . . . . . . . . .> INTO 144 BUCKETS                      
+. . . . . . . . . . . . . . . . . . . . . . .> STORED AS AVRO
+. . . . . . . . . . . . . . . . . . . . . . .> LOCATION 'project/warehouse/avro/weather_buck';
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- ─────────────────────────────────────────────────────────────
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- 2. Locations (table)  ➜  locations_part_avro
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> --    Partitioned by state, bucketed by city
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- ─────────────────────────────────────────────────────────────
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE locations_part (
+. . . . . . . . . . . . . . . . . . . . . . .>     id         BIGINT,
+. . . . . . . . . . . . . . . . . . . . . . .>     start_lat  DECIMAL,
+. . . . . . . . . . . . . . . . . . . . . . .>     start_lng  DECIMAL,
+. . . . . . . . . . . . . . . . . . . . . . .>     end_lat    DECIMAL,
+. . . . . . . . . . . . . . . . . . . . . . .>     end_lng    DECIMAL,
+. . . . . . . . . . . . . . . . . . . . . . .>     street     STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     city       STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     county     STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     zipcode    STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     timezone   STRING
+. . . . . . . . . . . . . . . . . . . . . . .>     
+. . . . . . . . . . . . . . . . . . . . . . .> )
+. . . . . . . . . . . . . . . . . . . . . . .> PARTITIONED BY (state CHAR(2))
+. . . . . . . . . . . . . . . . . . . . . . .> CLUSTERED BY (city) INTO 16 BUCKETS
+. . . . . . . . . . . . . . . . . . . . . . .> STORED AS AVRO
+. . . . . . . . . . . . . . . . . . . . . . .> LOCATION 'project/warehouse/avro/locations_part';
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- ─────────────────────────────────────────────────────────────
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- 3. Accidents (table)  ➜  accidents_part
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> --    Partitioned by severity & year, bucketed by month
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- ─────────────────────────────────────────────────────────────
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> CREATE EXTERNAL TABLE accidents_part (
+. . . . . . . . . . . . . . . . . . . . . . .>     id            STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     source        STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     distance_mi   DECIMAL(10,2),
+. . . . . . . . . . . . . . . . . . . . . . .>     description   STRING,
+. . . . . . . . . . . . . . . . . . . . . . .>     location_id   BIGINT,
+. . . . . . . . . . . . . . . . . . . . . . .>     weather_id    BIGINT,
+. . . . . . . . . . . . . . . . . . . . . . .>     twilight_id   SMALLINT,
+. . . . . . . . . . . . . . . . . . . . . . .>     road_feat_id  SMALLINT,
+. . . . . . . . . . . . . . . . . . . . . . .>     start_time    TIMESTAMP,
+. . . . . . . . . . . . . . . . . . . . . . .>     end_time      TIMESTAMP,
+. . . . . . . . . . . . . . . . . . . . . . .>     month         INT            -- bucket key stays in row schema
+. . . . . . . . . . . . . . . . . . . . . . .> )
+. . . . . . . . . . . . . . . . . . . . . . .> PARTITIONED BY (severity SMALLINT, year INT)
+. . . . . . . . . . . . . . . . . . . . . . .> CLUSTERED BY (month) INTO 12 BUCKETS
+. . . . . . . . . . . . . . . . . . . . . . .> STORED AS AVRO
+. . . . . . . . . . . . . . . . . . . . . . .> LOCATION 'project/warehouse/avro/accidents_part';
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- ─────────────────────────────────────────────────────────────
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- 6. Data‑conversion queries
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> --    (read from existing Parquet tables, write to Avro tables)
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- ─────────────────────────────────────────────────────────────
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Weather
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT OVERWRITE TABLE weather_buck
+. . . . . . . . . . . . . . . . . . . . . . .> SELECT
+. . . . . . . . . . . . . . . . . . . . . . .>     id, airport_code, weather_timestamp,
+. . . . . . . . . . . . . . . . . . . . . . .>     temperature_f, wind_chill_f, humidity_pct, pressure_in,
+. . . . . . . . . . . . . . . . . . . . . . .>     visibility_mi, wind_direction, wind_speed_mph, precipitation_in,
+. . . . . . . . . . . . . . . . . . . . . . .>     weather_condition           
+. . . . . . . . . . . . . . . . . . . . . . .> FROM weather;                      
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Locations
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT OVERWRITE TABLE locations_part PARTITION (state)
+. . . . . . . . . . . . . . . . . . . . . . .> SELECT
+. . . . . . . . . . . . . . . . . . . . . . .>     id, start_lat, start_lng, end_lat, end_lng,
+. . . . . . . . . . . . . . . . . . . . . . .>     street, county, zipcode, timezone, city,
+. . . . . . . . . . . . . . . . . . . . . . .>     state
+. . . . . . . . . . . . . . . . . . . . . . .> FROM locations;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Accidents
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> INSERT OVERWRITE TABLE accidents_part
+. . . . . . . . . . . . . . . . . . . . . . .> PARTITION (severity, year)
+. . . . . . . . . . . . . . . . . . . . . . .> SELECT
+. . . . . . . . . . . . . . . . . . . . . . .>     id,
+. . . . . . . . . . . . . . . . . . . . . . .>     source,
+. . . . . . . . . . . . . . . . . . . . . . .>     distance_mi,
+. . . . . . . . . . . . . . . . . . . . . . .>     description,
+. . . . . . . . . . . . . . . . . . . . . . .>     location_id,
+. . . . . . . . . . . . . . . . . . . . . . .>     weather_id,
+. . . . . . . . . . . . . . . . . . . . . . .>     twilight_id,
+. . . . . . . . . . . . . . . . . . . . . . .>     road_feat_id,
+. . . . . . . . . . . . . . . . . . . . . . .> 
+. . . . . . . . . . . . . . . . . . . . . . .>     -- timestamps converted from epoch‑millis
+. . . . . . . . . . . . . . . . . . . . . . .>     from_unixtime(CAST(start_time / 1000 AS BIGINT)) AS start_time,
+. . . . . . . . . . . . . . . . . . . . . . .>     from_unixtime(CAST(end_time   / 1000 AS BIGINT)) AS end_time,
+. . . . . . . . . . . . . . . . . . . . . . .> 
+. . . . . . . . . . . . . . . . . . . . . . .>     month(from_unixtime(CAST(start_time / 1000 AS BIGINT))) AS month,
+. . . . . . . . . . . . . . . . . . . . . . .>     severity,
+. . . . . . . . . . . . . . . . . . . . . . .>     year(from_unixtime(CAST(start_time / 1000 AS BIGINT)))  AS year
+. . . . . . . . . . . . . . . . . . . . . . .> FROM accidents;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- Delete tables partitioned or bucketed
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS weather;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS locations;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> DROP TABLE IF EXISTS accidents;
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- ─────────────────────────────────────────────────────────────
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- 7. Smoke test
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> -- ─────────────────────────────────────────────────────────────
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> SELECT COUNT(*)
+. . . . . . . . . . . . . . . . . . . . . . .> FROM accidents_part
+. . . . . . . . . . . . . . . . . . . . . . .> WHERE severity = 2 AND year = 2021;
++----------+
+|   _c0    |
++----------+
+| 1061577  |
++----------+
+0: jdbc:hive2://hadoop-03.uni.innopolis.ru:10> 

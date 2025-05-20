@@ -1,0 +1,73 @@
+{
+  "type" : "record",
+  "name" : "accidents",
+  "doc" : "Sqoop import of accidents",
+  "fields" : [ {
+    "name" : "id",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "id",
+    "sqlType" : "12"
+  }, {
+    "name" : "source",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "source",
+    "sqlType" : "12"
+  }, {
+    "name" : "severity",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "severity",
+    "sqlType" : "5"
+  }, {
+    "name" : "start_time",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "start_time",
+    "sqlType" : "93"
+  }, {
+    "name" : "end_time",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "end_time",
+    "sqlType" : "93"
+  }, {
+    "name" : "distance_mi",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "distance_mi",
+    "sqlType" : "2"
+  }, {
+    "name" : "description",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "description",
+    "sqlType" : "12"
+  }, {
+    "name" : "location_id",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "location_id",
+    "sqlType" : "-5"
+  }, {
+    "name" : "weather_id",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "weather_id",
+    "sqlType" : "-5"
+  }, {
+    "name" : "twilight_id",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "twilight_id",
+    "sqlType" : "5"
+  }, {
+    "name" : "road_feat_id",
+    "type" : [ "null", "int" ],
+    "default" : null,
+    "columnName" : "road_feat_id",
+    "sqlType" : "5"
+  } ],
+  "tableName" : "accidents"
+}

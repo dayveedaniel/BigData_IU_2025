@@ -1,0 +1,7 @@
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.util.Shell).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+Connecting to jdbc:hive2://hadoop-03.uni.innopolis.ru:10001/team5_projectdb
+Unknown HS2 problem when communicating with Thrift server.
+Error: Could not open client transport with JDBC Uri: jdbc:hive2://hadoop-03.uni.innopolis.ru:10001/team5_projectdb: Peer indicated failure: Error validating the login (state=08S01,code=0)
+Cannot run commands specified using -e. No current connection

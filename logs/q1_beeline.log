@@ -1,0 +1,78 @@
+log4j:WARN No appenders could be found for logger (org.apache.hadoop.util.Shell).
+log4j:WARN Please initialize the log4j system properly.
+log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
++------------------------+----------------------------+
+| q1_results.state_code  | q1_results.accident_count  |
++------------------------+----------------------------+
+| CA                     | 1078046                    |
+| FL                     | 588679                     |
+| TX                     | 220154                     |
+| VA                     | 194110                     |
+| NY                     | 192961                     |
+| PA                     | 174057                     |
+| NC                     | 152493                     |
+| OR                     | 152402                     |
+| SC                     | 143192                     |
+| MN                     | 128644                     |
+| AZ                     | 91105                      |
+| NJ                     | 87859                      |
+| MD                     | 87133                      |
+| TN                     | 81633                      |
+| GA                     | 73175                      |
+| LA                     | 72703                      |
+| MI                     | 68859                      |
+| IL                     | 67753                      |
+| UT                     | 58084                      |
+| CT                     | 48077                      |
+| CO                     | 46534                      |
+| OH                     | 45538                      |
+| WA                     | 44624                      |
+| MO                     | 43061                      |
+| IN                     | 34295                      |
+| AL                     | 29298                      |
+| MT                     | 27517                      |
+| AR                     | 20254                      |
+| WI                     | 17350                      |
+| DC                     | 14688                      |
+| KS                     | 14635                      |
+| IA                     | 14075                      |
+| OK                     | 13323                      |
+| WV                     | 12768                      |
+| ID                     | 11044                      |
+| NV                     | 10728                      |
+| MS                     | 8410                       |
+| MA                     | 7945                       |
+| KY                     | 7727                       |
+| DE                     | 7648                       |
+| RI                     | 5097                       |
+| NE                     | 4324                       |
+| NH                     | 4026                       |
+| NM                     | 3248                       |
+| WY                     | 3125                       |
+| ND                     | 2847                       |
+| ME                     | 2200                       |
+| VT                     | 364                        |
+| SD                     | 226                        |
++------------------------+----------------------------+

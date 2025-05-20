@@ -1,0 +1,79 @@
+{
+  "type" : "record",
+  "name" : "weather",
+  "doc" : "Sqoop import of weather",
+  "fields" : [ {
+    "name" : "id",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "id",
+    "sqlType" : "-5"
+  }, {
+    "name" : "airport_code",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "airport_code",
+    "sqlType" : "1"
+  }, {
+    "name" : "weather_timestamp",
+    "type" : [ "null", "long" ],
+    "default" : null,
+    "columnName" : "weather_timestamp",
+    "sqlType" : "93"
+  }, {
+    "name" : "temperature_f",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "temperature_f",
+    "sqlType" : "2"
+  }, {
+    "name" : "wind_chill_f",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "wind_chill_f",
+    "sqlType" : "2"
+  }, {
+    "name" : "humidity_pct",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "humidity_pct",
+    "sqlType" : "2"
+  }, {
+    "name" : "pressure_in",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "pressure_in",
+    "sqlType" : "2"
+  }, {
+    "name" : "visibility_mi",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "visibility_mi",
+    "sqlType" : "2"
+  }, {
+    "name" : "wind_direction",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "wind_direction",
+    "sqlType" : "12"
+  }, {
+    "name" : "wind_speed_mph",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "wind_speed_mph",
+    "sqlType" : "2"
+  }, {
+    "name" : "precipitation_in",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "precipitation_in",
+    "sqlType" : "2"
+  }, {
+    "name" : "weather_condition",
+    "type" : [ "null", "string" ],
+    "default" : null,
+    "columnName" : "weather_condition",
+    "sqlType" : "12"
+  } ],
+  "tableName" : "weather"
+}
