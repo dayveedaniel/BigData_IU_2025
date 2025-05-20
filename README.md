@@ -119,7 +119,7 @@ BigData_IU_2025/
     *   `import_data.sql`: An SQL script containing DML and potentially DDL statements that implement the main logic for transforming and moving data from the PostgreSQL staging table into the five normalized target tables. This script is responsible for data cleaning, normalization to 3rd Normal Form (3NF), and splitting the data appropriately.
 
 #### 8. `secrets/` Folder
-*   **Purpose**: Stores sensitive configuration files, primarily credentials for accessing databases and services. This folder should be (and is mentioned to be) included in the `.gitignore` file to prevent accidental commits of sensitive information to version control.
+*   **Purpose**: Stores sensitive configuration files, primarily credentials for accessing databases and services. This folder should be and is included in the `.gitignore` file to prevent accidental commits of sensitive information to version control.
 *   **Contents**:
     *   `.psql.pass`: A plain text file containing the password for accessing the PostgreSQL server (`team5_projectdb`).
     *   `.hive.pass`: A plain text file containing the password for accessing the Hive server (if authentication is configured similarly).
